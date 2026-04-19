@@ -1,5 +1,5 @@
-def stock_picker
-
+def stock_picker(array)
+  p array
 end
 
-stock_picker
+stock_picker([1,10])
