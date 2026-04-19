@@ -26,7 +26,7 @@ def stock_picker(array)
 
   result = [ buy_day, sell_day]
   p "for a profit of $#{higher_value} - $#{lower_value} == $#{higher_value - lower_value}"
-  return result
+  result
 end
 
 stock_picker([17,3,6,9,15,8,6,1,10])
