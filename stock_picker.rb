@@ -3,17 +3,17 @@ def stock_picker(array)
   sell_day = 1
   lower_value = array[0]
   higher_value = 0
-  candidate_buy_day = 0
+  possible_buy_day = 0
 
   array.each_with_index do |value, index|
     if value < lower_value
       lower_value = value
-      candidate_buy_day = index
+      possible_buy_day = index
     end
 
-    if index > candidate_buy_day && (value - lower_value) > higher_value
+    if index > possible_buy_day && (value - lower_value) > higher_value
       higher_value = value - lower_value
-      buy_day = candidate_buy_day
+      buy_day = possible_buy_day
       sell_day = index
     end
   end
