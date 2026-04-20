@@ -1,28 +1,24 @@
 def stock_picker(array)
-  lower_value = array[0]
   buy_day = 0
-
+  sell_day = 1
+  lower_value = array[0]
   higher_value = 0
-  sell_day = 0
-
-  max_profit = 0
+  candidate_buy_day = 0
 
   array.each_with_index do |value, index|
     if value < lower_value
       lower_value = value
-      buy_day = index
+      candidate_buy_day = index
     end
 
-    profit = value - lower_value
-
-    if profit > max_profit
-      max_profit = profit
-      higher_value = value
+    if index > candidate_buy_day && (value - lower_value) > higher_value
+      higher_value = value - lower_value
+      buy_day = candidate_buy_day
       sell_day = index
     end
   end
 
-  p "for a profit of $#{higher_value} - $#{lower_value} == $#{max_profit}"
+  p "for a profit of $#{array[sell_day]} - $#{array[buy_day]} == $#{higher_value}"
   [buy_day, sell_day]
 end
 
